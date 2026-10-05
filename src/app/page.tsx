@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
   Phone,
   Car,
@@ -9,22 +11,26 @@ import {
   User,
   Settings,
   Fuel,
-  ArrowRight
+  ArrowRight,
+  X
 } from "lucide-react";
 
 export default function Home() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [selectedCar, setSelectedCar] = useState("");
+
+  const handleBookNow = (carName: string) => {
+    setSelectedCar(carName);
+    setIsBookingOpen(true);
+  };
+
   return (
-    <main className="min-h-screen flex flex-col bg-gray-50">
+    <main className="min-h-screen flex flex-col bg-gray-50 relative">
       {/* Header */}
-      <header className="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/50 shadow-sm transition-all">
+      <header className="fixed w-full top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200/50 shadow-sm transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="bg-primary text-white p-2 rounded-lg">
-              <Car size={24} />
-            </div>
-            <span className="text-2xl font-black tracking-tight text-navy">
-              DRIVIO<span className="text-primary">.</span>
-            </span>
+          <div className="flex items-center">
+            <img src="/logo.png" alt="DRIVIO Logo" className="h-10 sm:h-12 w-auto object-contain" />
           </div>
 
           <nav className="hidden md:flex items-center gap-8 font-medium text-gray-600">
@@ -181,15 +187,15 @@ export default function Home() {
             <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all group flex flex-col">
               <div className="relative h-60 bg-gray-100 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1620891549027-942fdc95d3f5?auto=format&fit=crop&q=80&w=800" 
+                  src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Mahindra/Thar/10745/1697697308167/front-left-side-47.jpg" 
                   alt="Mahindra Thar"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-navy shadow-sm">
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-navy shadow-sm border border-gray-100/50">
                   SUV
                 </div>
               </div>
-              <div className="p-6 flex-grow flex flex-col justify-between">
+              <div className="p-6 flex-grow flex flex-col justify-between border-t border-gray-100">
                 <div>
                   <h4 className="text-2xl font-bold text-navy mb-1">Mahindra Thar</h4>
                   <p className="text-sm text-gray-500 mb-4">4x4 Off-Road Legend</p>
@@ -218,7 +224,7 @@ export default function Home() {
                       <span className="text-gray-500 font-medium">/hr</span>
                     </div>
                   </div>
-                  <button className="bg-navy hover:bg-navy-light text-white px-6 py-2.5 rounded-xl font-semibold transition-colors">
+                  <button onClick={() => handleBookNow("Mahindra Thar")} className="bg-navy hover:bg-navy-light text-white px-6 py-2.5 rounded-xl font-semibold transition-colors">
                     Book Now
                   </button>
                 </div>
@@ -229,15 +235,15 @@ export default function Home() {
             <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all group flex flex-col">
               <div className="relative h-60 bg-gray-100 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800" 
+                  src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Maruti/Swift/9226/1755777061785/front-left-side-47.jpg" 
                   alt="Maruti Swift"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-navy shadow-sm">
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-navy shadow-sm border border-gray-100/50">
                   Hatchback
                 </div>
               </div>
-              <div className="p-6 flex-grow flex flex-col justify-between">
+              <div className="p-6 flex-grow flex flex-col justify-between border-t border-gray-100">
                 <div>
                   <h4 className="text-2xl font-bold text-navy mb-1">Maruti Swift</h4>
                   <p className="text-sm text-gray-500 mb-4">Peppy & Efficient City Car</p>
@@ -266,7 +272,7 @@ export default function Home() {
                       <span className="text-gray-500 font-medium">/hr</span>
                     </div>
                   </div>
-                  <button className="bg-navy hover:bg-navy-light text-white px-6 py-2.5 rounded-xl font-semibold transition-colors">
+                  <button onClick={() => handleBookNow("Maruti Swift")} className="bg-navy hover:bg-navy-light text-white px-6 py-2.5 rounded-xl font-semibold transition-colors">
                     Book Now
                   </button>
                 </div>
@@ -277,15 +283,15 @@ export default function Home() {
             <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-2xl transition-all group flex flex-col">
               <div className="relative h-60 bg-gray-100 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=800" 
+                  src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Mahindra/Scorpio-N/10817/1690351800434/front-left-side-47.jpg" 
                   alt="Mahindra Scorpio"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-navy shadow-sm">
+                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-navy shadow-sm border border-gray-100/50">
                   SUV
                 </div>
               </div>
-              <div className="p-6 flex-grow flex flex-col justify-between">
+              <div className="p-6 flex-grow flex flex-col justify-between border-t border-gray-100">
                 <div>
                   <h4 className="text-2xl font-bold text-navy mb-1">Mahindra Scorpio</h4>
                   <p className="text-sm text-gray-500 mb-4">Commanding Road Presence</p>
@@ -314,7 +320,7 @@ export default function Home() {
                       <span className="text-gray-500 font-medium">/hr</span>
                     </div>
                   </div>
-                  <button className="bg-navy hover:bg-navy-light text-white px-6 py-2.5 rounded-xl font-semibold transition-colors">
+                  <button onClick={() => handleBookNow("Mahindra Scorpio")} className="bg-navy hover:bg-navy-light text-white px-6 py-2.5 rounded-xl font-semibold transition-colors">
                     Book Now
                   </button>
                 </div>
@@ -332,13 +338,8 @@ export default function Home() {
             
             {/* Brand */}
             <div className="col-span-1 lg:col-span-1">
-              <div className="flex items-center gap-2 mb-6 text-white">
-                <div className="bg-primary p-2 rounded-lg">
-                  <Car size={24} />
-                </div>
-                <span className="text-2xl font-black tracking-tight">
-                  DRIVIO<span className="text-primary">.</span>
-                </span>
+              <div className="flex items-center mb-6">
+                <img src="/logo.png" alt="DRIVIO Logo" className="h-16 w-auto object-contain bg-white/5 p-2 rounded-xl" />
               </div>
               <p className="text-gray-400 leading-relaxed mb-6">
                 Premium self-drive car rentals offering you the ultimate freedom on the road with transparent pricing and exceptional service.
@@ -401,6 +402,57 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Booking Modal */}
+      {isBookingOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-navy/60 backdrop-blur-sm" onClick={() => setIsBookingOpen(false)}></div>
+          
+          <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in duration-200">
+            <div className="bg-gray-50 px-6 py-4 border-b border-gray-100 flex items-center justify-between">
+              <h3 className="text-xl font-bold text-navy">
+                Book <span className="text-primary">{selectedCar}</span>
+              </h3>
+              <button 
+                onClick={() => setIsBookingOpen(false)}
+                className="p-1 hover:bg-gray-200 rounded-full transition-colors text-gray-500 hover:text-navy"
+              >
+                <X size={20} />
+              </button>
+            </div>
+            
+            <div className="p-6">
+              <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Booking request sent successfully!'); setIsBookingOpen(false); }}>
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
+                  <input type="text" required placeholder="John Doe" className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors bg-white text-navy" />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">Mobile Number</label>
+                  <input type="tel" required placeholder="+91 98765 43210" className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors bg-white text-navy" />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">Email Address</label>
+                  <input type="email" required placeholder="john@example.com" className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors bg-white text-navy" />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-1">Driving License Number</label>
+                  <input type="text" required placeholder="DL-1420110012345" className="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors bg-white text-navy" />
+                </div>
+
+                <div className="pt-2">
+                  <button type="submit" className="w-full bg-primary hover:bg-primary-hover text-white py-3 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 transition-all">
+                    Confirm Booking Request
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
