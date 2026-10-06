@@ -26,41 +26,14 @@ export default function Home() {
 
   return (
     <main className="min-h-screen flex flex-col bg-gray-50 relative">
-      {/* Header */}
-      <header className="fixed w-full top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200/50 shadow-sm transition-all">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <div className="flex items-center">
-            <img src="/logo.png" alt="DRIVIO Logo" className="h-10 sm:h-12 w-auto object-contain" />
-          </div>
-
-          <nav className="hidden md:flex items-center gap-8 font-medium text-gray-600">
-            <a href="#" className="hover:text-primary transition-colors text-navy font-semibold">Home</a>
-            <a href="#fleet" className="hover:text-primary transition-colors">Our Fleet</a>
-            <a href="#tariffs" className="hover:text-primary transition-colors">Tariffs</a>
-            <a href="#faqs" className="hover:text-primary transition-colors">FAQs</a>
-            <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
-          </nav>
-
-          <div className="flex items-center gap-6">
-            <div className="hidden lg:flex items-center gap-2 text-navy font-semibold">
-              <Phone size={18} className="text-primary" />
-              <span>85030082223</span>
-            </div>
-            <button className="bg-primary hover:bg-primary-hover text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-md shadow-primary/20 flex items-center gap-2">
-              <User size={18} />
-              <span className="hidden sm:inline">Sign In / Sign Up</span>
-            </button>
-          </div>
-        </div>
-      </header>
 
       {/* Hero Section */}
       <section className="relative pt-20 pb-32 lg:pt-32 lg:pb-48 bg-navy flex items-center justify-center min-h-[90vh]">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=2070"
+            src="/hero-banner.jpg"
             alt="Hero Background"
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover opacity-60"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-transparent"></div>
         </div>
@@ -331,77 +304,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer id="contact" className="bg-navy pt-20 pb-10 border-t-4 border-primary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-            
-            {/* Brand */}
-            <div className="col-span-1 lg:col-span-1">
-              <div className="flex items-center mb-6">
-                <img src="/logo.png" alt="DRIVIO Logo" className="h-16 w-auto object-contain bg-white/5 p-2 rounded-xl" />
-              </div>
-              <p className="text-gray-400 leading-relaxed mb-6">
-                Premium self-drive car rentals offering you the ultimate freedom on the road with transparent pricing and exceptional service.
-              </p>
-            </div>
-
-            {/* Quick Links */}
-            <div>
-              <h4 className="text-lg font-bold text-white mb-6">Quick Links</h4>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Home</a></li>
-                <li><a href="#fleet" className="text-gray-400 hover:text-primary transition-colors">Our Fleet</a></li>
-                <li><a href="#tariffs" className="text-gray-400 hover:text-primary transition-colors">Tariffs</a></li>
-                <li><a href="#faqs" className="text-gray-400 hover:text-primary transition-colors">FAQs</a></li>
-              </ul>
-            </div>
-
-            {/* Policies */}
-            <div>
-              <h4 className="text-lg font-bold text-white mb-6">Policies</h4>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Terms & Conditions</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-primary transition-colors">Cancellation Policy</a></li>
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h4 className="text-lg font-bold text-white mb-6">Contact Us</h4>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-gray-400">
-                  <Phone size={20} className="text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block font-medium text-white mb-1">Call Us 24/7</span>
-                    <span>85030082223</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3 text-gray-400 mt-4">
-                  <MapPin size={20} className="text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block font-medium text-white mb-1">Visit Website</span>
-                    <span>drivio.in</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            
-          </div>
-
-          <div className="pt-8 border-t border-gray-800 text-center flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-sm">
-              &copy; {new Date().getFullYear()} DRIVIO. All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <a href="#" className="text-gray-500 hover:text-white transition-colors">Facebook</a>
-              <a href="#" className="text-gray-500 hover:text-white transition-colors">Instagram</a>
-              <a href="#" className="text-gray-500 hover:text-white transition-colors">Twitter</a>
-            </div>
-          </div>
-        </div>
-      </footer>
 
       {/* Booking Modal */}
       {isBookingOpen && (
